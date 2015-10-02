@@ -1,0 +1,9 @@
+obj-m :=kprobe_test.o
+KDIR := /lhome/ylhsiao/PROJECT/H1/ambarella/out/a11bub_c/kernel/linux-3.10_s3 
+PWD := $(shell pwd)
+
+
+all:
+	make ARCH=arm CROSS_COMPILE=/usr/local/linaro-multilib-2014.04-gcc4.8/bin/arm-linux-gnueabihf- -C $(KDIR) SUBDIRS=$(PWD) modules
+clean:
+	rm -f *.mod.c *.ko *.o
